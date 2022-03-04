@@ -29,9 +29,13 @@ public class MainActivity extends AppCompatActivity implements PresenterContract
     private void initListeners() {
         binding.btnPlus.setOnClickListener(view -> {
             presenter.increment();
+            presenter.toast();
+            presenter.colorChange();
         });
         binding.btnMinus.setOnClickListener(view -> {
             presenter.decrement();
+            presenter.toast();
+            presenter.colorChange();
         });
     }
 
@@ -49,10 +53,5 @@ public class MainActivity extends AppCompatActivity implements PresenterContract
     @Override
     public void isTenColor() {
         binding.tvCount.setTextColor(this.getResources().getColor(R.color.green, getTheme()));
-    }
-
-    @Override
-    public void setDefault() {
-        binding.tvCount.setTextColor(this.getResources().getColor(R.color.black, getTheme()));
     }
 }
