@@ -35,15 +35,24 @@ public class MainActivity extends AppCompatActivity implements PresenterContract
         });
     }
 
+
     @Override
-    public void updateCounter(int counter, boolean isFive, boolean isTen) {
+    public void updateCounter(int counter) {
         binding.tvCount.setText(String.valueOf(counter));
-        if (isFive) {
-            Toast.makeText(this, "Ураа вы дошли до 5", Toast.LENGTH_SHORT).show();
-        }
-        if (isTen) {
-            binding.tvCount
-                    .setTextColor(this.getResources().getColor(R.color.red, getTheme()));
-        }
+    }
+
+    @Override
+    public void isFiveToast() {
+        Toast.makeText(this, "Ураа", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void isTenColor() {
+        binding.tvCount.setTextColor(this.getResources().getColor(R.color.green, getTheme()));
+    }
+
+    @Override
+    public void setDefault() {
+        binding.tvCount.setTextColor(this.getResources().getColor(R.color.black, getTheme()));
     }
 }

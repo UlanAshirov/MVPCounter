@@ -3,7 +3,10 @@ package com.joma.mvpcounter.presenter;
 public class PresenterContracts {
 
    public interface CounterView {
-       void updateCounter(int counter, boolean isFive, boolean isTen);
+       void updateCounter(int counter);
+       void isFiveToast();
+       void isTenColor();
+       void setDefault();
     }
 
     public interface CounterPresenter {

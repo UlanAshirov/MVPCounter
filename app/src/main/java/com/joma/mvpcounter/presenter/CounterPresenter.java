@@ -13,13 +13,27 @@ public class CounterPresenter implements PresenterContracts.CounterPresenter {
     @Override
     public void increment() {
         model.increment();
-        counterView.updateCounter(model.getCount(), model.isFive(), model.isTen());
+        counterView.updateCounter(model.getCount());
+        if (model.getCount() == 5) {
+            counterView.isFiveToast();
+        } else if (model.getCount() == 10) {
+            counterView.isTenColor();
+        } else {
+            counterView.setDefault();
+        }
     }
 
     @Override
     public void decrement() {
         model.decrement();
-        counterView.updateCounter(model.getCount(), model.isFive(), model.isTen());
+        counterView.updateCounter(model.getCount());
+        if (model.getCount() == 5) {
+            counterView.isFiveToast();
+        } else if (model.getCount() == 10) {
+            counterView.isTenColor();
+        } else {
+            counterView.setDefault();
+        }
     }
 
     @Override
